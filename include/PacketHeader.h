@@ -11,7 +11,7 @@
 const constexpr int c_maxNumberOfLayersInPacket = 6;
 template <int maxLayersInPacket>
 struct PacketHeader {
-
+	int packetId;
 	int size;      // size in Hits
 	int numLayers; // number of layers used. Cannot be larger than maxNumberOfLayersInPacket
 	int firstHitIdOnLayer[maxLayersInPacket]; // number of Hits from the beginning of the payload where the hits from each layer are stored
@@ -21,4 +21,9 @@ struct PacketHeader {
 };
 
 
+struct PacketFooter {
+	int packetId;
+};
+
 #endif /* GPUCA_INCLUDE_PACKETHEADER_H_ */
+buon

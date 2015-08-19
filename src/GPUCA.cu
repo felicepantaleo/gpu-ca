@@ -18,14 +18,6 @@
 #include <assert.h>     /* assert */
 
 
-// Maximum relative difference (par1_A - par1_B)/par1_A for each parameters
-constexpr float c_maxDoubletRelDifference[]{0.1, 0.05};
-constexpr float c_maxDoubletAbsDifference[]{0.1, 0.1};
-constexpr int c_doubletParametersNum = sizeof(c_maxDoubletRelDifference)/sizeof(c_maxDoubletRelDifference[0]);
-constexpr int c_maxCellsNumPerLayer  = 64;
-constexpr int c_maxNeighborsNumPerCell = 6;
-constexpr int c_maxHitsNumPerTrack = 5;
-constexpr int c_maxTracksNum = 64;
 
 template <int maxNumLayersInPacket>
 __inline__
@@ -356,5 +348,6 @@ int main()
 
 	cudaFreeHost(host_packetHeader);
 	cudaFree(device_Packet);
-
+	cudaFree(device_outputTracks);
+	cudaFreeHost(host_outputTracks);
 }
